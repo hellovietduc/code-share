@@ -1,0 +1,21 @@
+{
+  "extends": [
+    "airbnb-base",
+    "@vietduc",
+    "plugin:react/recommended"
+  ],
+  "env": {
+    "browser": true,
+    "jest": true
+  },
+  "rules": {
+    "no-console": "off",
+    "indent": [
+      "error",
+      2,
+      {
+        "SwitchCase": 1
+      }
+    ]
+  }
+}
