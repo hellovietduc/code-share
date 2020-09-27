@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import HomePage from './pages/Home';
-import AboutPage from './pages/About';
 import SharePage from './pages/Share';
 import CodePage from './pages/Code';
 
@@ -15,9 +14,6 @@ function App() {
         <Switch>
           <Route exact path="/">
             <HomePage />
-          </Route>
-          <Route exact path="/about">
-            <AboutPage />
           </Route>
           <Route exact path="/share">
             <SharePage />
