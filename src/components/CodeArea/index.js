@@ -22,17 +22,23 @@ const copyToClipboard = str => {
   }
 };
 
-function CopyButton({ onClick }) {
+function CopyButton({ onClick, opacity }) {
   const [buttonText, setButtonText] = useState('Copy');
+  const [innerOpacity, setInnerOpacity] = useState(0);
   return (
     <button
       className="absolute top-0 right-0 text-center bg-transparent rounded-lg py-2 px-3 outline-none text-sm text-white"
+      style={{ opacity: innerOpacity || opacity }}
       onClick={() => {
         onClick();
         setButtonText('Copied');
       }}
+      onMouseEnter={() => {
+        setInnerOpacity(1);
+      }}
       onMouseLeave={() => {
         setButtonText('Copy');
+        setInnerOpacity(0);
       }}
     >
       {buttonText}
@@ -41,10 +47,12 @@ function CopyButton({ onClick }) {
 }
 
 CopyButton.propTypes = {
-  onClick: PropTypes.func.isRequired
+  onClick: PropTypes.func.isRequired,
+  opacity: PropTypes.number
 };
 
 function CodeArea({ code, language }) {
+  const [opacity, setOpacity] = useState(0);
   return (
     <div className="flex justify-center">
       <div className="relative m-8 w-6/12">
@@ -53,12 +61,21 @@ function CodeArea({ code, language }) {
           style={darcula}
           language={language}
           showLineNumbers
+          onMouseEnter={() => {
+            setOpacity(1);
+          }}
+          onMouseLeave={() => {
+            setOpacity(0);
+          }}
         >
           {code}
         </SyntaxHighlighter>
-        <CopyButton onClick={() => {
-          copyToClipboard(code);
-        }} />
+        <CopyButton
+          opacity={opacity}
+          onClick={() => {
+            copyToClipboard(code);
+          }}
+        />
       </div>
     </div>
   );
