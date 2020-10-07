@@ -2,25 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { darcula } from 'react-syntax-highlighter/dist/esm/styles/prism';
-
-const copyToClipboard = str => {
-  const el = document.createElement('textarea');
-  el.value = str;
-  el.setAttribute('readonly', '');
-  el.style.position = 'absolute';
-  el.style.left = '-9999px';
-  document.body.appendChild(el);
-  const selected = document.getSelection().rangeCount > 0
-    ? document.getSelection().getRangeAt(0)
-    : false;
-  el.select();
-  document.execCommand('copy');
-  document.body.removeChild(el);
-  if (selected) {
-    document.getSelection().removeAllRanges();
-    document.getSelection().addRange(selected);
-  }
-};
+import copyToClipboard from '../../utils';
 
 function CopyButton({ onClick, opacity }) {
   const [buttonText, setButtonText] = useState('Copy');
@@ -55,7 +37,7 @@ function CodeArea({ code, language }) {
   const [opacity, setOpacity] = useState(0);
   return (
     <div className="flex justify-center">
-      <div className="relative m-8 w-6/12">
+      <div className="relative m-8 lg:w-1/2 md:w-2/3 w-full">
         <SyntaxHighlighter
           className="my-0 rounded-lg"
           style={darcula}
