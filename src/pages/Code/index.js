@@ -21,11 +21,11 @@ function CodePage() {
   return (
     <section className="container px-5 py-24 mx-auto relative">
       <div className="lg:w-1/2 md:w-2/3 mx-auto">
-        <div className="flex flex-wrap -m-2">
-          <div className="p-2 w-2/3">
+        <div className="flex flex-wrap justify-center -m-2">
+          <div className="p-2">
             <ReadOnlyInput value={location.pathname} />
           </div>
-          <div className="p-2 w-1/3">
+          <div className="p-2">
             <CopyBtn copyValue={location.pathname} />
           </div>
         </div>
