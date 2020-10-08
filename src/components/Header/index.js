@@ -11,7 +11,7 @@ function Header() {
         <span className="ml-3 text-xl">Code Share</span>
       </Link>
       <nav className="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400 flex flex-wrap items-center text-base justify-center">
-        <a href="https://github.com/hellovietduc/vscode-code-share" className="mr-5 hover:text-gray-900" rel="noopener noreferrer" target="_blank">VSCode extension</a>
+        <a href="https://github.com/hellovietduc/vscode-code-share" className="hover:text-gray-900" rel="noopener noreferrer" target="_blank">VSCode extension</a>
       </nav>
       <Link to="/share" className="inline-flex items-center bg-gray-200 border-0 py-1 px-3 focus:outline-none hover:bg-gray-300 rounded text-base mt-4 md:mt-0">New share
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-4 h-4 ml-1" viewBox="0 0 24 24">
