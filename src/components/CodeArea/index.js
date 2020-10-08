@@ -57,7 +57,7 @@ function CodeArea({ code, language }) {
 
   return (
     <div className="flex justify-center">
-      <div className="relative m-8 lg:w-1/2 md:w-2/3 w-full">
+      <div className="relative m-4 w-full">
         <SyntaxHighlighter
           className="my-0 rounded-lg"
           style={darcula}
