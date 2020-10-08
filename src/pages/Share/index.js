@@ -12,7 +12,7 @@ function SharePage() {
     if (!code) {
       return setErrorMessage('Please enter some code.');
     }
-    const url = await postCode(textarea.current.value);
+    const url = await postCode(code);
     if (!url) {
       return setErrorMessage('Failed to share code. Please retry.');
     }
