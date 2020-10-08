@@ -7,7 +7,7 @@ import getCode from '../../utils/request';
 
 function CodePage() {
   const { pathname } = useLocation();
-  const [codeString, setCodeString] = useState('');
+  const [codeString, setCodeString] = useState(null);
 
   useEffect(() => {
     const fetchCode = async () => {
