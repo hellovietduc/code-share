@@ -15,4 +15,19 @@ const getCode = hash => request.get(`/code/${hash}`)
     console.error('get code error:', err);
   });
 
-export default getCode;
+const postCode = code => request.post('/code', { code })
+  .then(res => {
+    const { url } = res.data;
+    if (res.status !== 201 || !url) {
+      return console.error('post code failed:', res.data);
+    }
+    return url;
+  })
+  .catch(err => {
+    console.error('post code error:', err);
+  });
+
+export {
+  getCode,
+  postCode
+};

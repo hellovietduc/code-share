@@ -1,6 +1,24 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
+import { Redirect } from 'react-router-dom';
+import { postCode } from '../../utils/request';
 
 function SharePage() {
+  const [codeURL, setCodeURL] = useState(null);
+  const [errorMessage, setErrorMessage] = useState(null);
+  const textarea = useRef(null);
+
+  const handleClick = async () => {
+    const code = textarea.current.value.trim();
+    if (!code) {
+      return setErrorMessage('Please enter some code.');
+    }
+    const url = await postCode(textarea.current.value);
+    if (!url) {
+      return setErrorMessage('Failed to share code. Please retry.');
+    }
+    setCodeURL(url.split('/').pop());
+  };
+
   return (
     <section className="container px-5 py-24 mx-auto relative">
       <div className="flex flex-col text-center w-full mb-12">
@@ -13,14 +31,24 @@ function SharePage() {
             <textarea
               className="w-full bg-gray-100 rounded border border-gray-400 focus:outline-none h-48 focus:border-green-500 font-mono text-base px-4 py-2 resize-none block"
               placeholder="Your awesome code..."
+              ref={textarea}
             >
             </textarea>
           </div>
           <div className="p-2 w-full">
-            <button className="flex mx-auto text-white bg-green-500 border-0 py-2 px-8 focus:outline-none hover:bg-green-600 rounded text-lg">Share</button>
+            <button
+              className="flex mx-auto text-white bg-green-500 border-0 py-2 px-8 focus:outline-none hover:bg-green-600 rounded text-lg"
+              onClick={handleClick}
+            >
+              Share
+            </button>
+            <p className="lg:w-2/3 mx-auto my-2 leading-relaxed text-base text-center text-red-600">
+              {errorMessage}
+            </p>
           </div>
         </div>
       </div>
+      {codeURL && <Redirect to={codeURL} />}
     </section>
   );
 }

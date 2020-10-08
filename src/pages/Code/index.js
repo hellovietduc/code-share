@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 import ReadOnlyInput from '../../components/ReadOnlyInput';
 import CopyBtn from '../../components/CopyBtn';
 import CodeArea from '../../components/CodeArea';
-import getCode from '../../utils/request';
+import { getCode } from '../../utils/request';
 
 function CodePage() {
   const { pathname } = useLocation();
