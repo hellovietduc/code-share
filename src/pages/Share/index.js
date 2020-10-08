@@ -10,7 +10,11 @@ function SharePage() {
       <div className="lg:w-1/2 md:w-2/3 mx-auto">
         <div className="flex flex-wrap -m-2">
           <div className="p-2 w-full">
-            <textarea className="w-full bg-gray-100 rounded border border-gray-400 focus:outline-none h-48 focus:border-green-500 text-base px-4 py-2 resize-none block" placeholder="Your awesome code..."></textarea>
+            <textarea
+              className="w-full bg-gray-100 rounded border border-gray-400 focus:outline-none h-48 focus:border-green-500 font-mono text-base px-4 py-2 resize-none block"
+              placeholder="Your awesome code..."
+            >
+            </textarea>
           </div>
           <div className="p-2 w-full">
             <button className="flex mx-auto text-white bg-green-500 border-0 py-2 px-8 focus:outline-none hover:bg-green-600 rounded text-lg">Share</button>
