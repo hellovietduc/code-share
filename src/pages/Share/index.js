@@ -29,7 +29,7 @@ function SharePage() {
         <div className="flex flex-wrap -m-2">
           <div className="p-2 w-full">
             <textarea
-              className="w-full bg-gray-100 rounded border border-gray-400 focus:outline-none h-48 focus:border-green-500 font-mono text-base px-4 py-2 resize-none block"
+              className="w-full bg-gray-100 rounded border border-gray-400 focus:outline-none h-48 focus:border-teal-500 font-mono text-base px-4 py-2 resize-none block"
               placeholder="Your awesome code..."
               ref={textarea}
             >
@@ -37,7 +37,7 @@ function SharePage() {
           </div>
           <div className="p-2 w-full">
             <button
-              className="flex mx-auto text-white bg-green-500 border-0 py-2 px-8 focus:outline-none hover:bg-green-600 rounded text-lg"
+              className="flex mx-auto text-white bg-teal-500 border-0 py-2 px-8 focus:outline-none hover:bg-teal-600 rounded text-lg"
               onClick={handleClick}
             >
               Share
